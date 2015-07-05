@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/blockdefaulters/db" VERSION="20130530" COMMENT="XMLDB file for Moodle local/blockdefaulters"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="blockdefaulters" COMMENT="Default comment for local_blockdefaulters, please edit me" NEXT="autoblock">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="username"/>
+        <FIELD NAME="username" TYPE="text" NOTNULL="false" SEQUENCE="false" PREVIOUS="id" NEXT="start_timestamp"/>
+        <FIELD NAME="start_timestamp" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="username" NEXT="stop_timestamp"/>
+        <FIELD NAME="stop_timestamp" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="start_timestamp"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="autoblock" COMMENT="Default comment for the table, please edit me" PREVIOUS="blockdefaulters">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" NEXT="category_id"/>
+        <FIELD NAME="category_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="id" NEXT="start_timestamp"/>
+        <FIELD NAME="start_timestamp" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="category_id" NEXT="stop_timestamp"/>
+        <FIELD NAME="stop_timestamp" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="start_timestamp" NEXT="cutoff"/>
+        <FIELD NAME="cutoff" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="stop_timestamp"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

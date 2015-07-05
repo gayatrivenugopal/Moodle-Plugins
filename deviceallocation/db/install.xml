@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/deviceallocation/db" VERSION="20141118" COMMENT="XMLDB file for Moodle local/deviceallocation"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="deviceallocation" COMMENT="Stores the details of the device allotted to the users">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="deviceid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="The device that has been allotted."/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="The ID of the user to whom the device has been allotted."/>
+        <FIELD NAME="issuedate" TYPE="char" LENGTH="150" NOTNULL="true" SEQUENCE="false" COMMENT="The date on which the device was issued."/>
+        <FIELD NAME="returndate" TYPE="char" LENGTH="150" NOTNULL="false" SEQUENCE="false" COMMENT="The date on which the device was returned."/>
+        <FIELD NAME="remarks" TYPE="char" LENGTH="300" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="device" COMMENT="Stores the details of the device to be allotted">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="sno" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Serial Number of the device"/>
+        <FIELD NAME="macaddress" TYPE="char" LENGTH="150" NOTNULL="true" SEQUENCE="false" COMMENT="MAC address of the device"/>
+        <FIELD NAME="descr" TYPE="char" LENGTH="300" NOTNULL="false" SEQUENCE="false" COMMENT="Description of the device"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="deviceusage" COMMENT="Stores the details of the apps used by the user.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="macaddress" TYPE="char" LENGTH="150" NOTNULL="true" SEQUENCE="false" COMMENT="The MAC address of the device that has been allotted to the user."/>
+        <FIELD NAME="application" TYPE="char" LENGTH="200" NOTNULL="true" SEQUENCE="false" COMMENT="The name of the app being used by the user."/>
+        <FIELD NAME="start_time" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="The time at which the app was started or resumed."/>
+        <FIELD NAME="stop_time" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="The time at which the app was stopped or replaced."/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
